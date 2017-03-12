@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField'
 import * as todoActions from './dux'
 
 class Todo extends React.Component {
@@ -16,8 +18,11 @@ class Todo extends React.Component {
     return (
       <div>
         <h3>Do List</h3>
-        <input type='text' onChange={(e) => this.props.draftTodo(e.target.value)} />
-        <button onClick={() => this.props.addTodo(this.props.todo.draft)}>+</button>
+        <TextField
+          onChange={(e) => this.props.draftTodo(e.target.value)}
+          hintText='What will you do next?'
+        />
+        <RaisedButton label='+' onTouchTap={() => this.props.addTodo(this.props.todo.draft)} />
         {this.renderList()}
       </div>
     )

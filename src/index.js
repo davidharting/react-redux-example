@@ -4,10 +4,14 @@ import { AppContainer } from 'react-hot-loader'
 
 import { Provider } from 'react-redux'
 
+// Dependency will go away in future versions of material-ui
+import injectTapEventPlugin from 'react-tap-event-plugin'
+
 import { configureStore } from './modules/store'
 
 import Root from './components/root'
 
+injectTapEventPlugin()
 const store = configureStore()
 
 /**

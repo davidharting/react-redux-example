@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import RaisedButton from 'material-ui/RaisedButton';
 import { incrementCounter, decrementCounter } from './dux'
 
 class Counter extends React.Component {
   render() {
     return (
       <div>
-        Count: {this.props.counter.count}
-        <button onClick={this.props.add}>+</button>
-        <button onClick={this.props.subtract}>-</button>
+        <div>Count: {this.props.counter.count}</div>
+        <RaisedButton onTouchTap={this.props.add} label='+' />
+        <RaisedButton onTouchTap={this.props.subtract} label='-' />
       </div>
     )
   }
