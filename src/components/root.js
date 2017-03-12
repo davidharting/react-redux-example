@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
@@ -19,12 +19,12 @@ class Root extends React.Component {
       <MuiThemeProvider>
         <Provider store={this.props.store}>
           <BrowserRouter>
-              <div>
-                <LeftNav />
-                <Route path='/' component={App} />
-                <Route path='/counter' component={Counter} />
-                <Route path='/todo' component={Todo} />
-              </div>
+            <div>
+              <LeftNav />
+              <Route path='/' component={App} />
+              <Route path='/counter' component={Counter} />
+              <Route path='/todo' component={Todo} />
+            </div>
           </BrowserRouter>
         </Provider>
       </MuiThemeProvider>
