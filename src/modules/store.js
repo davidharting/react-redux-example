@@ -8,11 +8,11 @@ import drawer from './drawer/dux'
 let store
 const middleware = [ thunk ]
 
-// if (__DEV__) {
-//   const createLogger = require('redux-logger')
-//   const logger = createLogger()
-//   middleware.push(logger)
-// }
+if (process.env.ENVIRONMENT === 'development') {
+  const createLogger = require('redux-logger')
+  const logger = createLogger()
+  middleware.push(logger)
+}
 
 function isStoreInitialized() {
   if (!store) {
