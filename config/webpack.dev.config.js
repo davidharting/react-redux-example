@@ -21,7 +21,10 @@ module.exports = {
             inject: 'body',
             filename: 'index.html'
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.ENVIRONMENT': JSON.stringify('development')
+        })
     ],
     module: {
         loaders: [
