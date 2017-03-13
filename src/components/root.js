@@ -11,7 +11,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import App from './app'
 import Counter from '../modules/counter'
 import Todo from '../modules/todo'
-import LeftNav from './left_nav'
+import Drawer from '../modules/drawer'
 
 class Root extends React.Component {
   render() {
@@ -20,7 +20,7 @@ class Root extends React.Component {
         <Provider store={this.props.store}>
           <BrowserRouter>
             <div>
-              <LeftNav />
+              <Drawer />
               <Route path='/' component={App} />
               <Route path='/counter' component={Counter} />
               <Route path='/todo' component={Todo} />

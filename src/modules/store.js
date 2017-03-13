@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import counter from './counter/dux' // TODO: How to I get webpack to let me import like: import counter from 'counter/dux'
 // http://moduscreate.com/es6-es2015-import-no-relative-path-webpack/
 import todo from './todo/dux'
+import drawer from './drawer/dux'
 
 let store
 const middleware = [ thunk ]
@@ -23,7 +24,7 @@ function isStoreInitialized() {
 }
 
 export function configureStore() {
-  const rootReducer = combineReducers({ counter, todo })
+  const rootReducer = combineReducers({ counter, todo, drawer })
   store = createStore(rootReducer, applyMiddleware(...middleware))
   return store
 }
