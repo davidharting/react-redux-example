@@ -8,11 +8,17 @@ class Counter extends React.Component {
     return (
       <div>
         <div>Count: {this.props.counter.count}</div>
-        <RaisedButton onTouchTap={this.props.add} label='+' />
-        <RaisedButton onTouchTap={this.props.subtract} label='-' />
+        <RaisedButton onTouchTap={this.props.add} label="+" />
+        <RaisedButton onTouchTap={this.props.subtract} label="-" />
       </div>
     )
   }
+}
+
+Counter.propTypes = {
+  counter: React.PropTypes.object.isRequired,
+  add: React.PropTypes.func.isRequired,
+  subtract: React.PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {

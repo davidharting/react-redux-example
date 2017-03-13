@@ -18,7 +18,8 @@ function add(state = initState, action) {
 function draft(state = initState, action) {
   return {
     ...state,
-    draft: action.data // Should I just tend to call this "data" everywhere, 
+    draft: action.data
+    // Should I just tend to call this "data" everywhere
     // Or make specific names on a per action basis?
   }
 }
@@ -35,9 +36,9 @@ export function addTodo(task) {
   }
 }
 
-export function draftTodo(draft) {
+export function draftTodo(newDraft) {
   return {
     type: DRAFT,
-    data: draft
+    data: newDraft
   }
 }

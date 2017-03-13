@@ -2,7 +2,6 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import Paper from 'material-ui/Paper'
 
 import App from './app'
@@ -18,10 +17,10 @@ class Root extends React.Component {
           <BrowserRouter>
             <div>
               <Drawer />
-              <Route path='/' component={App} />
+              <Route path="/" component={App} />
               <Paper zDepth={0}>
-                <Route path='/counter' component={Counter} />
-                <Route path='/todo' component={Todo} />
+                <Route path="/counter" component={Counter} />
+                <Route path="/todo" component={Todo} />
               </Paper>
             </div>
           </BrowserRouter>
@@ -29,6 +28,10 @@ class Root extends React.Component {
       </MuiThemeProvider>
     )
   }
+}
+
+Root.propTypes = {
+  store: React.propTypes.object.isRequired
 }
 
 export default Root

@@ -5,13 +5,13 @@ import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import * as todoActions from './dux'
 
-class Todo extends React.Component {
-  renderTodo(todo) {
-    return <div>{todo}</div>
-  }
+function renderTodo(todo) {
+  return <div>{todo}</div>
+}
 
+class Todo extends React.Component {
   renderList() {
-    return this.props.todo.list.map( (todo) => this.renderTodo(todo))
+    return this.props.todo.list.map(todo => renderTodo(todo))
   }
 
   render() {
@@ -19,14 +19,22 @@ class Todo extends React.Component {
       <div>
         <h3>Do List</h3>
         <TextField
-          onChange={(e) => this.props.draftTodo(e.target.value)}
-          hintText='What will you do next?'
+          onChange={e => this.props.actions.draftTodo(e.target.value)}
+          hintText="What will you do next?"
         />
-        <RaisedButton label='+' onTouchTap={() => this.props.addTodo(this.props.todo.draft)} />
+        <RaisedButton
+          label="+"
+          onTouchTap={() => this.props.actions.addTodo(this.props.todo.draft)}
+        />
         {this.renderList()}
       </div>
     )
   }
+}
+
+Todo.PropTypes = {
+  todo: React.PropTypes.object.isRequired,
+  actions: React.PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
@@ -36,7 +44,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(todoActions, dispatch)
+  return {
+    actions: bindActionCreators(todoActions, dispatch)
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todo)

@@ -5,6 +5,7 @@ const config = require('./config/webpack.dev.config')
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true,
+  // watch: true
   historyApiFallback: true,
   // It suppress error shown in console, so it has to be set to false.
   quiet: false,

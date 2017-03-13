@@ -8,46 +8,44 @@ import { bindActionCreators } from 'redux'
 import * as drawerActions from './dux'
 
 class Drawer extends React.Component {
-  toggle(open, reason) {
-    if (open) {
-      this.props.actions.openDrawer()
-    } else {
-      this.props.actions.closeDrawer()
-    }
-  }
-
   render() {
     const theme = this.props.muiTheme
     const topBarStyle = {
-     backgroundColor: theme.palette.primary1Color,
-     color: theme.appBar.textColor
+      backgroundColor: theme.palette.primary1Color,
+      color: theme.appBar.textColor
     }
     return (
       <div>
         <MuiDrawer
           open={this.props.drawer.isOpen}
           docked={false}
-          onRequestChange={this.toggle.bind(this)}
+          onRequestChange={this.props.actions.toggleDrawer}
         >
           <MenuItem
-            primaryText='Apps'
+            primaryText="Apps"
             onTouchTap={this.props.actions.closeDrawer}
             innerDivStyle={topBarStyle}
           />
           <MenuItem
-            primaryText='Counter'
-            containerElement={<Link to='/counter' />}
+            primaryText="Counter"
+            containerElement={<Link to="/counter" />}
             onTouchTap={this.props.actions.closeDrawer}
           />
           <MenuItem
-            primaryText='Todo List'
-            containerElement={<Link to='/todo' />}
+            primaryText="Todo List"
+            containerElement={<Link to="/todo" />}
             onTouchTap={this.props.actions.closeDrawer}
           />
         </MuiDrawer>
       </div>
     )
   }
+}
+
+Drawer.propTypes = {
+  drawer: React.PropTypes.object.isRequired,
+  actions: React.PropTypes.object.isRequired,
+  muiTheme: React.PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
