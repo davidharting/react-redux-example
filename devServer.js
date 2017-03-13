@@ -5,7 +5,6 @@ const config = require('./config/webpack.dev.config')
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true,
-  // watch: true
   historyApiFallback: true,
   // It suppress error shown in console, so it has to be set to false.
   quiet: false,
@@ -22,10 +21,10 @@ new WebpackDevServer(webpack(config), {
     chunks: false,
     chunkModules: false
   }
-}).listen(3000, 'localhost', function (err) {
+}).listen(3000, 'localhost', (err) => {
   if (err) {
     console.log(err);
   }
 
-  console.log('Listening at localhost:3000');
-});
+  console.log('Listening at localhost:3000')
+})
