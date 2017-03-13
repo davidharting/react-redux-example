@@ -9,7 +9,6 @@ import * as drawerActions from './dux'
 
 class Drawer extends React.Component {
   toggle(open, reason) {
-    console.log('Toggling to ', open, ' because ', reason)
     if (open) {
       this.props.actions.openDrawer()
     } else {
