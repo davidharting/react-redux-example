@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node devServer",
-    "build-dev": "rimraf dist && webpack --config config/webpack.config.js --progress --profile --colors",
-    "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors"
+    "build": "rimraf dist && webpack --config ./config/webpack.prod.config.js --progress --profile --colors"
   },
   "author": "",
   "license": "ISC",
@@ -32,7 +31,9 @@
     "babel-preset-react": "^6.23.0",
     "html-webpack-plugin": "^2.28.0",
     "react-hot-loader": "^3.0.0-beta.6",
+    "redux-logger": "^2.8.2",
     "rimraf": "^2.6.1",
+    "stats-webpack-plugin": "^0.5.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   }
