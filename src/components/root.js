@@ -3,10 +3,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-
-// Note that I had to lock in react-router and react-router-dom at their exact current
-// versions in order for them to play nicely together. I was getting a weird error
-// with router context not being defined inside of Link components
+import Paper from 'material-ui/Paper'
 
 import App from './app'
 import Counter from '../modules/counter'
@@ -22,8 +19,10 @@ class Root extends React.Component {
             <div>
               <Drawer />
               <Route path='/' component={App} />
-              <Route path='/counter' component={Counter} />
-              <Route path='/todo' component={Todo} />
+              <Paper zDepth={0}>
+                <Route path='/counter' component={Counter} />
+                <Route path='/todo' component={Todo} />
+              </Paper>
             </div>
           </BrowserRouter>
         </Provider>
