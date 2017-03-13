@@ -27,11 +27,11 @@ module.exports = {
         })
     ],
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
+                exclude: [/node_modules/],
+                use: 'babel-loader'
             }
         ]
     }

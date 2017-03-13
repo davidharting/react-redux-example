@@ -30,7 +30,7 @@ module.exports = {
         new StatsWebpackPlugin('stats.json')
     ],
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js?$/,
                 exclude: /node_modules/,
