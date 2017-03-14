@@ -5,7 +5,7 @@ import todo from 'modules/todo/dux'
 import drawer from 'modules/drawer/dux'
 
 let store
-const middleware = [ thunk ]
+const middleware = [thunk]
 
 if (process.env.ENVIRONMENT === 'development') {
   const createLogger = require('redux-logger')

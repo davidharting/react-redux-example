@@ -28,6 +28,7 @@ render(
 
 if (module.hot) {
   module.hot.accept('./components/root', () => {
+    // eslint-disable-next-line global-require
     const NewRoot = require('./components/root').default;
     render(
       <AppContainer>
