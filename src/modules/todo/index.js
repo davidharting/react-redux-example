@@ -32,7 +32,7 @@ class Todo extends React.Component {
   }
 }
 
-Todo.PropTypes = {
+Todo.propTypes = {
   todo: React.PropTypes.object.isRequired,
   actions: React.PropTypes.object.isRequired
 }
