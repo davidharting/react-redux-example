@@ -1,4 +1,4 @@
-import reducer from '../reducer'
+import reducer from 'modules/reducer'
 
 const OPEN = 'drawer/OPEN'
 const CLOSE = 'drawer/CLOSE'

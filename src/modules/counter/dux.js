@@ -1,4 +1,4 @@
-import reducer from '../reducer'
+import reducer from 'modules/reducer'
 
 const INCREMENT = 'counter/INCREMENT'
 const DECREMENT = 'counter/DECREMENT'

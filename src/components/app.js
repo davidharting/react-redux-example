@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import * as drawerActions from '../modules/drawer/dux'
+import * as drawerActions from 'modules/drawer/dux'
 
 class App extends Component {
   render() {

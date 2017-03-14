@@ -4,10 +4,10 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Paper from 'material-ui/Paper'
 
-import App from './app'
-import Counter from '../modules/counter'
-import Todo from '../modules/todo'
-import Drawer from '../modules/drawer'
+import App from 'components/app'
+import Counter from 'modules/counter'
+import Todo from 'modules/todo'
+import Drawer from 'modules/drawer'
 
 class Root extends React.Component {
   render() {
