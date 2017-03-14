@@ -37,5 +37,11 @@ module.exports = {
         loader: 'babel-loader'
       }
     ]
+  },
+  resolve: {
+    modules: [
+      path.resolve('./node_modules'),
+      path.resolve('./src')
+    ]
   }
 }
