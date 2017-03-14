@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node devServer",
-    "build": "rimraf dist && webpack --config ./config/webpack.prod.config.js --progress --profile --colors"
+    "build": "rimraf dist && webpack --config ./config/webpack.prod.config.js --progress --profile --colors",
+    "lint": "eslint src"
   },
   "author": "",
   "license": "ISC",
