@@ -3,11 +3,13 @@ import thunk from 'redux-thunk'
 import counter from 'modules/counter/dux'
 import todo from 'modules/todo/dux'
 import drawer from 'modules/drawer/dux'
+import { StorageKeys } from 'const'
 
 let store
 const middleware = [thunk]
 
-if (process.env.ENVIRONMENT === 'development') {
+if (localStorage.getItem(StorageKeys.ENABLE_REDUX_LOGGER) === 'true') {
+  // eslint-disable-next-line global-require
   const createLogger = require('redux-logger')
   const logger = createLogger()
   middleware.push(logger)

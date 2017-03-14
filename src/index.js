@@ -7,7 +7,13 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 
 import { configureStore } from 'modules/store'
 
-import Root from './components/root'
+import Root from 'components/root'
+
+import { StorageKeys } from 'const'
+
+if (process.env.ENVIRONMENT === 'development') {
+  localStorage.setItem(StorageKeys.ENABLE_REDUX_LOGGER, true)
+}
 
 injectTapEventPlugin()
 const store = configureStore()
