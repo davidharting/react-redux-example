@@ -1,7 +1,9 @@
+# Node stuff
 node_modules
+npm-debug.log
 
+# Build artifacts
 dist
 
+# Personal workspace stuff
 .vscode
-
-npm-debug.log
