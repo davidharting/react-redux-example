@@ -1,20 +1,21 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import { BrowserRouter, Route } from 'react-router-dom'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import App from 'components/app'
+import theme from './theme';
 
+import App from 'components/app';
 
 class Root extends React.Component {
-// Put Drawer in App
-// Nest counter and todo routes
-// Separate out routes
-// Default to Login (a separate top-level route)
+  // Put Drawer in App
+  // Nest counter and todo routes
+  // Separate out routes
+  // Default to Login (a separate top-level route)
 
   render() {
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={theme}>
         <Provider store={this.props.store}>
           <BrowserRouter>
             <div>
@@ -23,12 +24,12 @@ class Root extends React.Component {
           </BrowserRouter>
         </Provider>
       </MuiThemeProvider>
-    )
+    );
   }
 }
 
 Root.propTypes = {
   store: React.PropTypes.object.isRequired
-}
+};
 
-export default Root
+export default Root;

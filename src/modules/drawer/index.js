@@ -1,63 +1,81 @@
-import React from 'react'
-import MuiDrawer from 'material-ui/Drawer'
-import MenuItem from 'material-ui/MenuItem'
-import { Link } from 'react-router-dom'
+import React, { Component, PropTypes } from 'react';
+import Drawer from 'material-ui/Drawer';
+import { List, ListItem, makeSelectable } from 'material-ui/List';
+// import MenuItem from 'material-ui/MenuItem';
+import { Link } from 'react-router-dom';
 import muiThemeable from 'material-ui/styles/muiThemeable';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as drawerActions from './dux'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as drawerActions from './dux';
 
-class Drawer extends React.Component {
+const SelectableList = makeSelectable(List);
+
+class AppNavDrawer extends Component {
   render() {
-    const theme = this.props.muiTheme
+    const theme = this.props.muiTheme;
     const topBarStyle = {
       backgroundColor: theme.palette.primary1Color,
       color: theme.appBar.textColor
-    }
+    };
+
+    const {
+      location,
+      docked,
+      onRequestChangeNavDrawer,
+      onChangeList,
+      open,
+      style
+    } = this.props;
+
     return (
       <div>
-        <MuiDrawer
-          open={this.props.drawer.isOpen}
-          docked={false}
-          onRequestChange={this.props.actions.toggleDrawer}
+        <Drawer
+          style={style}
+          docked={docked}
+          open={open}
+          onRequestChange={onRequestChangeNavDrawer}
         >
-          <MenuItem
-            primaryText="Apps"
-            onTouchTap={this.props.actions.closeDrawer}
-            innerDivStyle={topBarStyle}
-          />
-          <MenuItem
-            primaryText="Counter"
-            containerElement={<Link to="/counter" />}
-            onTouchTap={this.props.actions.closeDrawer}
-          />
-          <MenuItem
-            primaryText="Todo List"
-            containerElement={<Link to="/todo" />}
-            onTouchTap={this.props.actions.closeDrawer}
-          />
-        </MuiDrawer>
+          <SelectableList value="" onChange={onChangeList}>
+            <ListItem primaryText="Apps" />
+            <ListItem
+              primaryText="Counter"
+              containerElement={<Link to="/counter" />}
+            />
+            <ListItem
+              primaryText="Todo List"
+              containerElement={<Link to="/todo" />}
+            />
+          </SelectableList>
+        </Drawer>
       </div>
-    )
+    );
   }
 }
 
-Drawer.propTypes = {
-  drawer: React.PropTypes.object.isRequired,
-  actions: React.PropTypes.object.isRequired,
-  muiTheme: React.PropTypes.object.isRequired
-}
+AppNavDrawer.propTypes = {
+  docked: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
+  onChangeList: PropTypes.func.isRequired,
+  onRequestChangeNavDrawer: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired
+  // style: PropTypes.object,
+  // drawer: React.PropTypes.object.isRequired,
+  // actions: React.PropTypes.object.isRequired,
+  // muiTheme: React.PropTypes.object.isRequired
+};
 
 function mapStateToProps(state) {
   return {
     drawer: state.drawer
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(drawerActions, dispatch)
-  }
+  };
 }
 
-export default muiThemeable()(connect(mapStateToProps, mapDispatchToProps)(Drawer))
+export default muiThemeable()(
+  connect(mapStateToProps, mapDispatchToProps)(AppNavDrawer)
+);
